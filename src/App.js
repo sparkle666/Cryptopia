@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { Route, Routes } from 'react-router-dom'
+// import { Layout as AntLayout, Typography, Space } from "antd"
+// import {Navbar} from "./components"
+import './App.css'
+import {LayoutMain} from "./components/Layout"
+import Home from "./components/Home"
+import Exchanges from "./components/Exchanges"
+import News from "./components/News"
+import Cryptocurrencies from "./components/Cryptocurrencies"
+import {Empty} from "antd"
+import Cryptodetails from './components/Cryptodetails'
+import "./App.css"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default function App() {
+    return (
+        <div>
+            <Routes>
+                <Route path = "/" element = {<LayoutMain />}> 
+                    <Route path = "home" element = {<Home/>} />
+                    <Route path = "exchanges" element = {<Exchanges/>} />
+                    <Route path = "cryptocurrencies" element = {<Cryptocurrencies/>} />
+                    <Route path = "news" element = {<News/>} />
+                    <Route path = "cryptocurrencies/:cryptoID" element = {<Cryptodetails/>} />
+                    <Route path = "*" element = {<Empty/>} />
+                </Route>
+            </Routes>
+        </div>
+    )
 }
 
-export default App;
