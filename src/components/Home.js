@@ -1,8 +1,7 @@
 import React from "react";
 import millify from "millify";
-import { Row, Col, Typography, Statistic, Card, Divider } from "antd";
+import { Row, Col, Typography, Statistic, Divider, Empty } from "antd";
 import { Link } from "react-router-dom";
-import {ArrowUpOutlined} from "@ant-design/icons"
 import "../App.css"
 import { useGetCryptosQuery } from "../services/cryptoApi"
 import Cryptocurrencies from "./Cryptocurrencies"
@@ -12,7 +11,7 @@ import News from "./News"
 export default function Home() {
 
   const {data, isFetching, error} = useGetCryptosQuery(10) // Destructure get and get the necessary data from the object
-  // console.log(data,isFetching, error)
+  console.log(data,isFetching, error)
 
   const { Title } = Typography;
 
@@ -20,9 +19,11 @@ export default function Home() {
     return "Loading..."
   }
   const globalStats = data?.data?.stats
-
+  console.log(globalStats)
   return (
     <>
+      {globalStats ? (
+      <>
       <Title level={2}> Global Crypto Statistics </Title>
       <Row>
         <Col span={12}>
@@ -60,13 +61,15 @@ export default function Home() {
         </Col>
         <Col span = {12}>
           <div className="show-more">
-            <Link to="/cryptocurrencies">Show more</Link>
+            <Link to="/news">Show more</Link>
           </div>
         </Col>
         <Col span = {24}>
           <News simplified/>
         </Col>
       </Row>
+      </>
+      ) : <Empty /> }
     </>
   );
 }
