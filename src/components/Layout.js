@@ -65,8 +65,7 @@ export const LayoutMain = () => {
       >
         <div className="logo"> 
           {/* <img src="./ethbtc.png" style = {{width: 16, height: 32, textAlign: "center"}}/> */}
-          <Image src="./ethbtc.png" className = 'logo-img' width = {16} height = {32} preview = {false} />
-          <Title>Cryptopia</Title>
+          <Image src="./CryptoLogo.png" className = 'logo-img' preview = {false} />
         </div>
         <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
           <Menu.Item key="1" icon={<HomeOutlined />}>
@@ -88,9 +87,8 @@ export const LayoutMain = () => {
           className="site-layout-sub-header-background"
           style={{ padding: 0 }}
         > 
-          <HomeOutlined />
         </Header>
-        <Content style={{ margin: "24px 16px 0" }} className = "content-area">
+        <Content style={{ margin: "24px 16px 0",  }} className = "content-area">
           <div
             className="site-layout-background"
             style={{ padding: 24, minHeight: 360 }}
