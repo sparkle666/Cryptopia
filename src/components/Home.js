@@ -6,6 +6,7 @@ import "../App.css"
 import { useGetCryptosQuery } from "../services/cryptoApi"
 import Cryptocurrencies from "./Cryptocurrencies"
 import News from "./News"
+import Loader from './Loader'
 
 
 export default function Home() {
@@ -16,7 +17,7 @@ export default function Home() {
   const { Title } = Typography;
 
   if(isFetching){
-    return "Loading..."
+    return <Loader />
   }
   const globalStats = data?.data?.stats
   console.log(globalStats)

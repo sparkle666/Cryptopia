@@ -35,3 +35,13 @@
   .search-input{
     margin: 6px 0;
   }
+  .flex-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .content-area::-webkit-scrollbar { /* WebKit */
+    width: 0;
+    height: 0;
+}
