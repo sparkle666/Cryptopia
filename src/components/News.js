@@ -6,16 +6,16 @@ import moment from "moment"
 function News({simplified}) {
     const {data: cryptoNews, isFetching} = useGetCryptoNewsQuery({newsCategory: "Cryptocurrency", count: simplified ? 6 : 12})
     console.log(cryptoNews)
-    const {Title, Text} = Typography
-    const {Option} = Select
+    // const {Title, Text} = Typography
+    // const {Option} = Select
     if (isFetching){
-        return "Loading..."
+        return <Empty />
     }
     return (
         <div>
             <Row gutter = {[24, 24]}>
                 {cryptoNews?.value?.map((news, i) => (
-                    <Col xs={24} sm={12} lg={6} key = {i}>
+                    <Col xs={24} sm={12} lg={8} key = {i}>
                         <Card hoverable title = {news.name} cover = {<img src = {news?.image?.thumbnail?.contentUrl} />}
                         loading =  {isFetching ? true: false}
                         actions = {[

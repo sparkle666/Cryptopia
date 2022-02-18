@@ -1,4 +1,3 @@
-import { useState } from "react";
 import React from "react";
 import "antd/dist/antd.css";
 import "../App.css";
@@ -10,7 +9,7 @@ import Home from "./Home";
 import Cryptocurrencies from "./Cryptocurrencies";
 import Exchanges from "./Exchanges";
 import News from "./News";
-import {Empty, Image, Typography} from "antd"
+import {Empty, Image} from "antd"
 
 
 
@@ -20,15 +19,15 @@ export const LayoutMain = () => {
   // get the location
   const location = useLocation();
   const path = location.pathname;
-  const {Title} = Typography;
+  
   // Set up the deafult selected keys
 
-  const [selectedKey, setSelectedKey] = useState([])
+  // const [selectedKey, setSelectedKey] = useState([])
 
-  const [collapsed, setCollapsed] = useState(false);
-  const toggle = () => {
-    setCollapsed = true;
-  };
+  // const [collapsed, setCollapsed] = useState(false);
+  // const toggle = () => {
+  //   setCollapsed = true;
+  // };
   var compo;
   if (path === "/home" || path === "/") {
     compo = <Home />;
@@ -55,12 +54,6 @@ export const LayoutMain = () => {
         className = "side-bar"
         breakpoint="lg"
         collapsedWidth="0"
-        onBreakpoint={(broken) => {
-          console.log(broken);
-        }}
-        onCollapse={(collapsed, type) => {
-          console.log(collapsed, type);
-        }}
         style={{ width: 500 }}
       >
         <div className="logo"> 
