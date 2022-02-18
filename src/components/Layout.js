@@ -1,7 +1,7 @@
 import React from "react";
 import "antd/dist/antd.css";
 import "../App.css";
-import { Layout, Menu } from "antd";
+import { Layout, Menu, Avatar, Dropdown } from "antd";
 import { HomeOutlined, MoneyCollectOutlined, ProfileOutlined, DollarOutlined } 
 from "@ant-design/icons";
 import { Link, useLocation } from "react-router-dom";
@@ -29,6 +29,18 @@ export const LayoutMain = () => {
   //   setCollapsed = true;
   // };
   var compo;
+  // menu items for dropdown
+  const menu = (
+    <Menu>
+      <Menu.Item>
+        <a>Profile</a>
+      </Menu.Item>
+      <Menu.Item>
+        <a>Sign Out</a>
+      </Menu.Item>
+    </Menu>
+  )
+
   if (path === "/home" || path === "/") {
     compo = <Home />;
     // setSelectedKey([1])
@@ -80,6 +92,13 @@ export const LayoutMain = () => {
           className="site-layout-sub-header-background"
           style={{ padding: 0 }}
         > 
+          <div className="flex-container-nav">
+            <div>
+              <Dropdown overlay = {menu} placeholder = 'bottomCenter'>
+                <Avatar src="https://joeschmoe.io/api/v1/random" className = 'layout-avatar'/>
+              </Dropdown>
+            </div>
+          </div>
         </Header>
         <Content style={{ margin: "24px 16px 0",  }} className = "content-area">
           <div

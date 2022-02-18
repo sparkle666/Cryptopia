@@ -40,7 +40,17 @@
     justify-content: center;
     align-items: center;
   }
-
+  .flex-container-nav{
+    display: flex;
+    justify-content: end;
+  }
+  .layout-avatar {
+    margin: 6px 10px 0 0;
+    border: 1px solid rgb(224, 224, 224);
+  }
+  .layout-avatar:hover {
+    border: 1px solid rgb(194, 194, 194);
+  }
   .content-area::-webkit-scrollbar { /* WebKit */
     width: 0;
     height: 0;
