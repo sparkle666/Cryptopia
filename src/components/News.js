@@ -2,6 +2,7 @@ import React from 'react'
 import {Select, Card, Col, Row, Avatar, Typography, Empty} from "antd"
 import {useGetCryptoNewsQuery} from "../services/cryptoNewsApi"
 import moment from "moment"
+import Loader from './Loader'
 
 function News({simplified}) {
     const {data: cryptoNews, isFetching} = useGetCryptoNewsQuery({newsCategory: "Cryptocurrency", count: simplified ? 6 : 12})
@@ -9,10 +10,14 @@ function News({simplified}) {
     // const {Title, Text} = Typography
     // const {Option} = Select
     if (isFetching){
+        return <Loader />
+    }
+    if (cryptoNews === null){
         return <Empty />
     }
     return (
         <div>
+            <h2 style = {{textAlign: "center"}}> Here are the current Crypto related news... </h2>
             <Row gutter = {[24, 24]}>
                 {cryptoNews?.value?.map((news, i) => (
                     <Col xs={24} sm={12} lg={8} key = {i}>

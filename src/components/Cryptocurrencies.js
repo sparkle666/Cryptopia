@@ -4,6 +4,7 @@ import { Row, Col, Input, Card, Empty } from "antd"
 import { Link } from "react-router-dom"
 import { useState, useEffect } from "react"
 import { useGetCryptosQuery } from "../services/cryptoApi"
+import Loader from './Loader'
 
 function Cryptocurrencies({simplified}) {
     // set count to 10 or 100 depemding on the passed in props
@@ -23,7 +24,10 @@ function Cryptocurrencies({simplified}) {
     console.log(searchTerm)
     // If its is fetching show loading
     if (isFetching){
-        return "Loading..."
+        return <Loader />
+    }
+    if (cryptoList === null){
+        return <Empty />
     }
     return (
         <div>
