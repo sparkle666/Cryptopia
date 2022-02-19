@@ -1,5 +1,5 @@
 import React from 'react'
-import {Select, Card, Col, Row, Avatar, Typography, Empty} from "antd"
+import {Card, Col, Row, Avatar, Empty} from "antd"
 import {useGetCryptoNewsQuery} from "../services/cryptoNewsApi"
 import moment from "moment"
 import Loader from './Loader'
@@ -21,7 +21,7 @@ function News({simplified}) {
             <Row gutter = {[24, 24]}>
                 {cryptoNews?.value?.map((news, i) => (
                     <Col xs={24} sm={12} lg={8} key = {i}>
-                        <Card hoverable title = {news.name} cover = {<img src = {news?.image?.thumbnail?.contentUrl} />}
+                        <Card hoverable title = {news.name} cover = {<img src = {news?.image?.thumbnail?.contentUrl} alt = "img" />}
                         loading =  {isFetching ? true: false}
                         actions = {[
                             <Avatar src = {news?.provider[0]?.image?.thumbnail?.contentUrl}/>,

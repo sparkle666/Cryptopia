@@ -33,10 +33,10 @@ export const LayoutMain = () => {
   const menu = (
     <Menu>
       <Menu.Item>
-        <a>Profile</a>
+        <a href = "/#">Profile</a>
       </Menu.Item>
       <Menu.Item>
-        <a>Sign Out</a>
+        <a href = "/#">Sign Out</a>
       </Menu.Item>
     </Menu>
   )
